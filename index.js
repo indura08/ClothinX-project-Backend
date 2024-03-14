@@ -21,7 +21,7 @@ app.use(express.json())
 app.use("/api/auth" , authRoute);
 app.use("/api/users" , userRoute);
 app.use("/api/products" , productRoute);
-app.use("/api/cart" , cartRoute)
+app.use("/api/cart" , cartRoute);
 app.use("/api/orders" , orderRoute);
 
 app.listen(process.env.PORT || 5002, () => console.log("app is listen on port 5002"));
