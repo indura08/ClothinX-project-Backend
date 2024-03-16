@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+
+const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRoute = require("./routes/user");
@@ -14,8 +16,9 @@ dotenv.config();
 //methna mongodb.net kiyna ekt passe denne hamnge dtabase eke namai, ara kalin project eketh e wage dunne db eke nama
 mongoose.connect(
       process.env.MONGO_URL  
-).then(() => console.log("Database connected successfully")).catch((err) => console.log("error happened"));
+).then(() => console.log("Database connected successfully")).catch((err) => console.log("error happened" , err));
 
+app.use(cors()) // menna me kalla one frontend ekatai backend ekatai connect wenna. mokda me kalle thiynwa ehma connect wenna one policies rules wage mokdda set ekk , e set ekak include wenne menna me middleware ekn
 app.use(express.json())
 
 app.use("/api/auth" , authRoute);
