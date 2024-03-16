@@ -11,7 +11,7 @@ route.post("/", verifyToken,  async(req,res) => {
         const savedCart = await newCart.save();
         res.status(200).json({"status": "saved" , data: savedCart});
     }catch(err){
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
 
 })
@@ -34,7 +34,7 @@ route.put("/:id", verifyTokenAndAutherization, async (req,res) => {
 route.delete("/delete/:id", verifyTokenAndAutherization, async (req,res) => {
     try{
 
-        await Cart.findByIdAndDelete(req.params.id)
+        await Cart.findByIdAndDelete(req.params.id);
         res.status(200).json("cart has been deleted");
 
     }catch(err){
