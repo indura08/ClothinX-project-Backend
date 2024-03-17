@@ -18,7 +18,7 @@ route.post("/" , verifyTokenAndAdmin,  async(req,res) => {
 })
 
 
-//update user
+//update product
 route.put("/:id", verifyTokenAndAdmin, async (req,res) => {
     try{
         const updateProduct = await Product.findByIdAndUpdate(req.params.id, {
