@@ -39,7 +39,7 @@ route.post("/login" , async (req,res) => {
             isAdmin: user.isAdmin,
 
         }, process.env.JWT_SEC,
-            {expiresIn: "3d"}
+            {expiresIn: "18d"}
         ) //meken puluwan me json web token athule monw hari apita one krna ape schema athul;e thiyna (userge)
         //data ki payak daala ewa check wena widiya anuwa balala authentication saha autherization hdgnna
 
@@ -66,6 +66,6 @@ route.post("/login" , async (req,res) => {
 
 module.exports = route
 
-//54:44 nawttuwe
+
 
 
