@@ -29,4 +29,4 @@ app.use("/api/cart" , cartRoute);
 app.use("/api/orders" , orderRoute);
 app.use("/api/checkout" , stripeRoute);
 
-app.listen(process.env.PORT || 5002, () => console.log("app is listen on port 5002"));
+app.listen(5002, () => console.log("app is listen on port 5002"));
