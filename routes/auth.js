@@ -25,11 +25,12 @@ route.post("/register", async (req,res) => {
 route.post("/login" , async (req,res) => {
     try{
         const user = await User.findOne({ username: req.body.username });
+        console.log(user)
         if (!user) {
             return res.status(401).json("Wrong credentials!");
         } 
-        //meka thami pahala ghla thiynne mekath if eka liyna eka widyak shortend kramayak
        
+        // meken kiynne password eka encrypt krnna kiyla meka encrypt krna widiyk 
         const hashPassword = CryptoJs.AES.decrypt(user.password, process.env.PASS_SEC);
 
         const OriginalPassword = hashPassword.toString(CryptoJs.enc.Utf8);
@@ -53,7 +54,7 @@ route.post("/login" , async (req,res) => {
         
         const { password, ...other } = user._doc;
 
-        return res.status(200).json({...other, accessToken});
+        return res.status(200).json({...other, accessToken , "status" : "login successfull"});
 
         
 
