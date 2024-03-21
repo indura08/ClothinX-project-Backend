@@ -60,6 +60,7 @@ route.get("/", async (req,res) => {
 
     const qNew = req.query.new;
     const qCategory = req.query.category;
+    //console.log(qCategory)
 
     try{
         let products;
@@ -68,7 +69,7 @@ route.get("/", async (req,res) => {
             products = await Product.find().sort({createdAt: -1}).limit(5);
         }else if (qCategory){
             products = await Product.find({
-                categories: {
+                category: {
                     $in: [qCategory],
                 },
             });
