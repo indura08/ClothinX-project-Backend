@@ -23,6 +23,9 @@ app.use(cors()) // menna me kalla one frontend ekatai backend ekatai connect wen
 app.use(express.json())
 
 app.use("/api/auth" , authRoute);
+app.use("/api/hi", (req, res) => {
+      res.send("Hellow, express backend works fine!, congrats!!")
+})
 app.use("/api/users" , userRoute);
 app.use("/api/products" , productRoute);
 app.use("/api/cart" , cartRoute);
